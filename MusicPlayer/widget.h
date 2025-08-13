@@ -1,7 +1,8 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
-#include <QWidget>
+#include<QWidget>
+#include<QMediaPlayer>
 
 QT_BEGIN_NAMESPACE
 
@@ -63,6 +64,13 @@ private slots:
 
     void hideAnimation(QWidget *target);//隐藏动画
 
+    void on_pushButton_8_clicked(int value);//倍速播放槽函数
+
+    void showVolumeSlider();//显示音量条
+
+    void hideVolumeSlider();//隐藏音量条
+
+    bool eventFilter(QObject *obj, QEvent *event);//捕获鼠标进入事件
 
 private:
     Ui::Widget *ui;
@@ -73,5 +81,6 @@ private:
     int curPlayIndex = 0;
     QMediaPlayer* mediaPlayer;
     bool m_isShowFlag;//列表存在的状态
+    bool m_volumeSliderVisible; // 音量条是否可见
 };
 #endif // WIDGET_H

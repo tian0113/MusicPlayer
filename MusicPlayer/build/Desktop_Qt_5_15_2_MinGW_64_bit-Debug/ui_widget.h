@@ -33,6 +33,7 @@ public:
     QPushButton *pushButton_5;
     QPushButton *pushButton_6;
     QPushButton *pushButton_7;
+    QPushButton *pushButton_8;
     QListWidget *listWidget;
     QSlider *playCourseSlider;
     QSlider *volumeSlider;
@@ -41,6 +42,10 @@ public:
     QLabel *curLabel;
     QSpacerItem *horizontalSpacer;
     QLabel *totalLabel;
+    QSlider *speedSlider;
+    QLabel *speedlabel;
+    QLabel *speedlabel_2;
+    QLabel *speedlabel_3;
 
     void setupUi(QWidget *Widget)
     {
@@ -60,7 +65,7 @@ public:
 ""));
         widget = new QWidget(Widget);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(0, 430, 481, 61));
+        widget->setGeometry(QRect(0, 430, 531, 61));
         widget->setMaximumSize(QSize(16777215, 64));
         widget->setStyleSheet(QString::fromUtf8(""));
         horizontalLayout = new QHBoxLayout(widget);
@@ -121,6 +126,14 @@ public:
 
         horizontalLayout->addWidget(pushButton_7);
 
+        pushButton_8 = new QPushButton(widget);
+        pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
+        pushButton_8->setMinimumSize(QSize(32, 32));
+        pushButton_8->setMaximumSize(QSize(32, 32));
+        pushButton_8->setStyleSheet(QString::fromUtf8(""));
+
+        horizontalLayout->addWidget(pushButton_8);
+
         listWidget = new QListWidget(Widget);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
         listWidget->setGeometry(QRect(480, 10, 221, 341));
@@ -130,7 +143,7 @@ public:
         playCourseSlider->setOrientation(Qt::Horizontal);
         volumeSlider = new QSlider(Widget);
         volumeSlider->setObjectName(QString::fromUtf8("volumeSlider"));
-        volumeSlider->setGeometry(QRect(360, 378, 22, 51));
+        volumeSlider->setGeometry(QRect(340, 380, 22, 51));
         volumeSlider->setOrientation(Qt::Vertical);
         layoutWidget = new QWidget(Widget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
@@ -152,6 +165,19 @@ public:
 
         horizontalLayout_2->addWidget(totalLabel);
 
+        speedSlider = new QSlider(Widget);
+        speedSlider->setObjectName(QString::fromUtf8("speedSlider"));
+        speedSlider->setGeometry(QRect(440, 420, 81, 22));
+        speedSlider->setOrientation(Qt::Horizontal);
+        speedlabel = new QLabel(Widget);
+        speedlabel->setObjectName(QString::fromUtf8("speedlabel"));
+        speedlabel->setGeometry(QRect(425, 400, 41, 20));
+        speedlabel_2 = new QLabel(Widget);
+        speedlabel_2->setObjectName(QString::fromUtf8("speedlabel_2"));
+        speedlabel_2->setGeometry(QRect(500, 400, 41, 20));
+        speedlabel_3 = new QLabel(Widget);
+        speedlabel_3->setObjectName(QString::fromUtf8("speedlabel_3"));
+        speedlabel_3->setGeometry(QRect(330, 360, 41, 19));
 
         retranslateUi(Widget);
 
@@ -168,8 +194,12 @@ public:
         pushButton_5->setText(QString());
         pushButton_6->setText(QString());
         pushButton_7->setText(QString());
+        pushButton_8->setText(QString());
         curLabel->setText(QCoreApplication::translate("Widget", "00:00", nullptr));
         totalLabel->setText(QCoreApplication::translate("Widget", "00:00", nullptr));
+        speedlabel->setText(QString());
+        speedlabel_2->setText(QString());
+        speedlabel_3->setText(QString());
     } // retranslateUi
 
 };

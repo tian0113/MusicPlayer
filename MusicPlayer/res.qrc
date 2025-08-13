@@ -14,5 +14,6 @@
         <file>assets/close.png</file>
         <file>assets/open.png</file>
         <file>assets/BK2.png</file>
+        <file>assets/speed.png</file>
     </qresource>
 </RCC>

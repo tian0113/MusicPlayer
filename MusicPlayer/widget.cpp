@@ -9,6 +9,8 @@
 #include<QPalette>
 #include<QRandomGenerator>//获取随机数
 #include<QPropertyAnimation>//动画效果
+#include<QTimer>//定时器
+
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -44,15 +46,77 @@ Widget::Widget(QWidget *parent)
     //设置音量
     //初始化音量滑块
     ui->volumeSlider->setRange(0,100);
+    ui->volumeSlider->setValue(30);
     mediaPlayer->setVolume(30);
-
-    //设置音量按钮，不使用时隐藏音量条
     ui->volumeSlider->setVisible(false);
 
-    //设置音量按钮，点击音量按钮弹出音量条
+    //初始化音量标签
+    ui->speedlabel_3->setText("100");
+    ui->speedlabel_3->setVisible(false);
+    ui->speedlabel_3->setStyleSheet("QLabel {"
+                                  "font-family: Arial;" // 设置字体为 Arial
+                                  "font-size: 14px;"    // 设置字体大小为 14 像素
+                                  "font-weight: bold;"  // 设置字体为粗体
+                                  "color: white;"       // 设置文本颜色为白色
+                                  "background-color: rgba(0, 0, 0, 128);" // 设置背景颜色为半透明黑色
+                                  "padding: 4px;"       // 设置内边距为 4 像素
+                                  "border-radius: 5px;" // 设置圆角边框，半径为 5 像素
+                                  "}");
+
+    //为音量按钮和音量条安装事件过滤器
+    ui->pushButton_6->installEventFilter(this);
+    ui->volumeSlider->installEventFilter(this);
+
+    //鼠标点击音量按钮关闭音量条
     connect(ui->pushButton_6,&QPushButton::clicked,[=](){
         bool vis = ui->volumeSlider->isVisible();
         ui->volumeSlider->setVisible(!vis);
+        ui->speedlabel_3->setVisible(!vis);
+    });
+
+    //设置倍速图标样式
+    ui->pushButton_8->setIcon(QIcon(":/assets/speed.png"));
+
+    //初始化倍速
+    ui->speedSlider->setRange(50,150); // 范围为 25% 到 200%
+    ui->speedSlider->setValue(100); // 初始值为 100%（即正常速度）
+    ui->speedSlider->setSingleStep(5); // 每次滑动的步长为 5%
+
+    //初始化倍速标签
+    ui->speedlabel->setText("0.5X"); //最低速度
+    ui->speedlabel_2->setText("1.5X");//最大速度
+
+    //设置倍速标签样式
+    ui->speedlabel->setStyleSheet("QLabel {"
+                                    "font-family: Times New Roman;" // 设置字体为 Arial
+                                    "font-size: 14px;"    // 设置字体大小为 14 像素
+                                    "font-weight: bold;"  // 设置字体为粗体
+                                    "color: white;"       // 设置文本颜色为白色
+                                    "background-color: rgba(0, 0, 0, 128);" // 设置背景颜色为半透明黑色
+                                    "padding: 4px;"       // 设置内边距为 4 像素
+                                    "border-radius: 5px;" // 设置圆角边框，半径为 5 像素
+                                    "}");
+    ui->speedlabel_2->setStyleSheet("QLabel {"
+                                    "font-family: Times New Roman;" // 设置字体为 Arial
+                                    "font-size: 14px;"    // 设置字体大小为 14 像素
+                                    "font-weight: bold;"  // 设置字体为粗体
+                                    "color: white;"       // 设置文本颜色为白色
+                                    "background-color: rgba(0, 0, 0, 128);" // 设置背景颜色为半透明黑色
+                                    "padding: 4px;"       // 设置内边距为 4 像素
+                                    "border-radius: 5px;" // 设置圆角边框，半径为 5 像素
+                                    "}");
+
+    //设置倍速按钮，不使用时隐藏音量条
+    ui->speedSlider->setVisible(false);
+    ui->speedlabel->setVisible(false);
+    ui->speedlabel_2->setVisible(false);
+
+    //设置倍速按钮，点击倍速时弹出倍速条
+    connect(ui->pushButton_8,&QPushButton::clicked,[=](){
+        bool vis2 = ui->speedSlider->isVisible();
+        ui->speedSlider->setVisible(!vis2);
+        ui->speedlabel->setVisible(!vis2);
+        ui->speedlabel_2->setVisible(!vis2);
     });
 
     //使QListWidget背景透明
@@ -84,6 +148,9 @@ Widget::Widget(QWidget *parent)
 
     //设置音量条，移动滑块改变音量大小
     connect(ui->volumeSlider,&QSlider::sliderMoved,mediaPlayer,&QMediaPlayer::setVolume);
+
+    //设置倍速条，移动滑块改变播放速率
+    connect(ui->speedSlider, &QSlider::valueChanged, this, &Widget::on_pushButton_8_clicked);
 
     //设置播放器背景
     setBackGround(":/assets/BK2.png");
@@ -331,3 +398,45 @@ void Widget::hideAnimation(QWidget *target){
     loop.exec();
 }
 
+//倍速播放
+void Widget::on_pushButton_8_clicked(int value)
+{
+    double playbackRate = value / 100.0; // 将滑块值（百分比）转换为播放倍速
+    mediaPlayer->setPlaybackRate(playbackRate); // 设置播放倍速
+    qDebug() << "当前播放倍速：" << playbackRate;
+}
+
+//显示和隐藏音量条
+void Widget::showVolumeSlider()
+{
+    ui->volumeSlider->setVisible(true);
+    ui->speedlabel_3->setVisible(true);
+    m_volumeSliderVisible = true;
+}
+
+void Widget::hideVolumeSlider()
+{
+    //通过设置m_volumeSliderVisible来判断当前音量条隐藏状态，避免重复隐藏
+    if (m_volumeSliderVisible) {
+        ui->volumeSlider->setVisible(false);
+        ui->speedlabel_3->setVisible(false);
+        m_volumeSliderVisible = false;
+    }
+}
+
+//捕获鼠标进入事件
+bool Widget::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == ui->pushButton_6) {
+        if (event->type() == QEvent::Enter) {
+            showVolumeSlider(); // 鼠标进入按钮区域，显示音量条
+            return true;
+        }
+    } else if (obj == ui->volumeSlider) {
+        if (event->type() == QEvent::Leave) {
+            hideVolumeSlider(); // 鼠标离开音量条，隐藏音量条
+            return true;
+        }
+    }
+    return QWidget::eventFilter(obj, event); // 调用基类的事件过滤器
+}

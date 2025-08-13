@@ -115,6 +115,7 @@ debug/qrc_res.cpp: ../../res.qrc \
 		../../assets/playlist_order.png \
 		../../assets/nextSong.png \
 		../../assets/preSong.png \
+		../../assets/speed.png \
 		../../assets/BK.png \
 		../../assets/playlist_repeat.png \
 		../../assets/pause.png
@@ -547,7 +548,12 @@ debug/widget.o: ../../widget.cpp ../../widget.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/QPixmap \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/QPalette \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QRandomGenerator \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qrandom.h
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qrandom.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QPropertyAnimation \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qpropertyanimation.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qvariantanimation.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qeasingcurve.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qabstractanimation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\widget.o ..\..\widget.cpp
 
 debug/qrc_res.o: debug/qrc_res.cpp 
