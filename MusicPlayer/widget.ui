@@ -31,7 +31,7 @@ QPushButton:hover
     <rect>
      <x>0</x>
      <y>430</y>
-     <width>531</width>
+     <width>601</width>
      <height>61</height>
     </rect>
    </property>
@@ -221,15 +221,37 @@ QPushButton:hover
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_Lyrics">
+      <property name="minimumSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QListWidget" name="listWidget">
    <property name="geometry">
     <rect>
-     <x>480</x>
-     <y>10</y>
+     <x>490</x>
+     <y>0</y>
      <width>221</width>
-     <height>341</height>
+     <height>231</height>
     </rect>
    </property>
   </widget>
@@ -249,7 +271,7 @@ QPushButton:hover
   <widget class="QSlider" name="volumeSlider">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>350</x>
      <y>380</y>
      <width>22</width>
      <height>51</height>
@@ -340,7 +362,7 @@ QPushButton:hover
   <widget class="QLabel" name="speedlabel_3">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>340</x>
      <y>360</y>
      <width>41</width>
      <height>19</height>
@@ -348,6 +370,16 @@ QPushButton:hover
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="lyricsTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>421</width>
+     <height>321</height>
+    </rect>
    </property>
   </widget>
  </widget>

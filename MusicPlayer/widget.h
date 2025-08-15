@@ -3,6 +3,7 @@
 
 #include<QWidget>
 #include<QMediaPlayer>
+#include<QTextEdit>
 
 QT_BEGIN_NAMESPACE
 
@@ -72,6 +73,10 @@ private slots:
 
     bool eventFilter(QObject *obj, QEvent *event);//捕获鼠标进入事件
 
+    void toggleLyrics(); // 切换歌词显示框
+
+    //void updateLyrics(); // 更新歌词显示（可选，用于动态显示）
+
 private:
     Ui::Widget *ui;
     QList<QUrl> playList;//播放列表
@@ -82,5 +87,8 @@ private:
     QMediaPlayer* mediaPlayer;
     bool m_isShowFlag;//列表存在的状态
     bool m_volumeSliderVisible; // 音量条是否可见
+    QTextEdit* lyricsTextEdit; // 歌词显示框
+    QString loadLyrics(const QString& musicFilePath); // 加载歌词文件
+
 };
 #endif // WIDGET_H

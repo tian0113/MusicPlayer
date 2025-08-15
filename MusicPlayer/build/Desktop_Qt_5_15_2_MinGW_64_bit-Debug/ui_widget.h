@@ -17,6 +17,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -34,6 +35,7 @@ public:
     QPushButton *pushButton_6;
     QPushButton *pushButton_7;
     QPushButton *pushButton_8;
+    QPushButton *pushButton_Lyrics;
     QListWidget *listWidget;
     QSlider *playCourseSlider;
     QSlider *volumeSlider;
@@ -46,6 +48,7 @@ public:
     QLabel *speedlabel;
     QLabel *speedlabel_2;
     QLabel *speedlabel_3;
+    QTextEdit *lyricsTextEdit;
 
     void setupUi(QWidget *Widget)
     {
@@ -65,7 +68,7 @@ public:
 ""));
         widget = new QWidget(Widget);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(0, 430, 531, 61));
+        widget->setGeometry(QRect(0, 430, 601, 61));
         widget->setMaximumSize(QSize(16777215, 64));
         widget->setStyleSheet(QString::fromUtf8(""));
         horizontalLayout = new QHBoxLayout(widget);
@@ -134,16 +137,24 @@ public:
 
         horizontalLayout->addWidget(pushButton_8);
 
+        pushButton_Lyrics = new QPushButton(widget);
+        pushButton_Lyrics->setObjectName(QString::fromUtf8("pushButton_Lyrics"));
+        pushButton_Lyrics->setMinimumSize(QSize(32, 32));
+        pushButton_Lyrics->setMaximumSize(QSize(32, 32));
+        pushButton_Lyrics->setStyleSheet(QString::fromUtf8(""));
+
+        horizontalLayout->addWidget(pushButton_Lyrics);
+
         listWidget = new QListWidget(Widget);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
-        listWidget->setGeometry(QRect(480, 10, 221, 341));
+        listWidget->setGeometry(QRect(490, 0, 221, 231));
         playCourseSlider = new QSlider(Widget);
         playCourseSlider->setObjectName(QString::fromUtf8("playCourseSlider"));
         playCourseSlider->setGeometry(QRect(10, 410, 331, 22));
         playCourseSlider->setOrientation(Qt::Horizontal);
         volumeSlider = new QSlider(Widget);
         volumeSlider->setObjectName(QString::fromUtf8("volumeSlider"));
-        volumeSlider->setGeometry(QRect(340, 380, 22, 51));
+        volumeSlider->setGeometry(QRect(350, 380, 22, 51));
         volumeSlider->setOrientation(Qt::Vertical);
         layoutWidget = new QWidget(Widget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
@@ -177,7 +188,10 @@ public:
         speedlabel_2->setGeometry(QRect(500, 400, 41, 20));
         speedlabel_3 = new QLabel(Widget);
         speedlabel_3->setObjectName(QString::fromUtf8("speedlabel_3"));
-        speedlabel_3->setGeometry(QRect(330, 360, 41, 19));
+        speedlabel_3->setGeometry(QRect(340, 360, 41, 19));
+        lyricsTextEdit = new QTextEdit(Widget);
+        lyricsTextEdit->setObjectName(QString::fromUtf8("lyricsTextEdit"));
+        lyricsTextEdit->setGeometry(QRect(20, 20, 421, 321));
 
         retranslateUi(Widget);
 
@@ -195,6 +209,7 @@ public:
         pushButton_6->setText(QString());
         pushButton_7->setText(QString());
         pushButton_8->setText(QString());
+        pushButton_Lyrics->setText(QString());
         curLabel->setText(QCoreApplication::translate("Widget", "00:00", nullptr));
         totalLabel->setText(QCoreApplication::translate("Widget", "00:00", nullptr));
         speedlabel->setText(QString());

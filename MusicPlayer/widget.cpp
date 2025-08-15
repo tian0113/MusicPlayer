@@ -10,6 +10,7 @@
 #include<QRandomGenerator>//获取随机数
 #include<QPropertyAnimation>//动画效果
 #include<QTimer>//定时器
+#include<QTextEdit>
 
 
 Widget::Widget(QWidget *parent)
@@ -119,11 +120,43 @@ Widget::Widget(QWidget *parent)
         ui->speedlabel_2->setVisible(!vis2);
     });
 
-    //使QListWidget背景透明
+    //设置歌词显示图标样式表
+    ui->pushButton_Lyrics->setIcon(QIcon(":/assets/showSong.png"));
+
+    // 初始化歌词显示框
+    ui->lyricsTextEdit->setReadOnly(true);
+    ui->lyricsTextEdit->setGeometry(20, 20, 421, 321); // 设置歌词显示区域
+    ui->lyricsTextEdit->setVisible(false); // 默认隐藏
+
+    //歌词显示框样式表设置（背景颜色，透明度，字体，滚动条，阴影效果）
+    ui->lyricsTextEdit->setStyleSheet("QTextEdit {"
+                                      "background-color: rgba(0, 0, 0, 128);"
+                                      "color: white;"
+                                      "font-family: 'Segoe UI', Arial, sans-serif;"
+                                      "font-size: 16px;"
+                                      "font-weight: bold;"
+                                      "padding: 10px;"
+                                      "border: 2px solid #333;"
+                                      "border-radius: 10px;"
+                                      "box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);"
+                                      "}");
+
+    //禁止在歌词显示界面使用滚动条
+    ui->lyricsTextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->lyricsTextEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    // 初始化歌词按钮
+    ui->pushButton_Lyrics->setVisible(true); // 确保歌词按钮可见
+
+    //设置歌单显示界面样式表，使QListWidget背景透明
     ui->listWidget->setStyleSheet(
         "QListWidget { background: transparent; border: none; }"
         "QListWidget::item { background: transparent; }");
     ui->listWidget->viewport()->setAutoFillBackground(false);
+
+    //禁止在歌单显示界面使用滚动条
+    ui->listWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->listWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     //播放完当前歌曲后自动切换歌曲
     connect(mediaPlayer,&QMediaPlayer::mediaStatusChanged,[=](QMediaPlayer::MediaStatus status){
@@ -143,14 +176,14 @@ Widget::Widget(QWidget *parent)
     //设置音乐播放列表
     connect(ui->pushButton_7,&QPushButton::clicked,this,&Widget::handleMusicListSlot);
 
-    //根据播放模式播放下一首
-    //connect(ui->pushButton_2,&QPushButton::clicked,this,&Widget::on_pushButton_5_clicked);
-
     //设置音量条，移动滑块改变音量大小
     connect(ui->volumeSlider,&QSlider::sliderMoved,mediaPlayer,&QMediaPlayer::setVolume);
 
     //设置倍速条，移动滑块改变播放速率
     connect(ui->speedSlider, &QSlider::valueChanged, this, &Widget::on_pushButton_8_clicked);
+
+    //设置歌词显示
+    connect(ui->pushButton_Lyrics,&QPushButton::clicked,this,&Widget::toggleLyrics);
 
     //设置播放器背景
     setBackGround(":/assets/BK2.png");
@@ -439,4 +472,43 @@ bool Widget::eventFilter(QObject *obj, QEvent *event)
         }
     }
     return QWidget::eventFilter(obj, event); // 调用基类的事件过滤器
+}
+
+//切换歌词显示框的显示状态
+void Widget::toggleLyrics()
+{
+    if (ui->lyricsTextEdit->isVisible()) {
+        ui->lyricsTextEdit->setVisible(false);
+    } else {
+        ui->lyricsTextEdit->setVisible(true);
+        QString musicFilePath = playList[curPlayIndex].toLocalFile();
+        QString lyrics = loadLyrics(musicFilePath);
+        ui->lyricsTextEdit->setText(lyrics);
+    }
+}
+
+//加载歌词文件
+QString Widget::loadLyrics(const QString& musicFilePath)
+{
+    if (musicFilePath.isEmpty()) {
+        qDebug() << "Error: No music file loaded.";
+        return "No music file loaded.";
+    }
+
+    // 获取歌词文件路径
+    QString lyricsFilePath = musicFilePath.section('.', 0, -2) + ".lrc";
+    qDebug() << "Lyrics file path:" << lyricsFilePath;
+
+    QFile lyricsFile(lyricsFilePath);
+    if (lyricsFile.exists()) {
+        qDebug() << "Lyrics file exists.";
+        lyricsFile.open(QIODevice::ReadOnly | QIODevice::Text);
+        QTextStream in(&lyricsFile);
+        QString lyrics = in.readAll();
+        lyricsFile.close();
+        return lyrics;
+    } else {
+        qDebug() << "Lyrics file does not exist.";
+        return "Lyrics not found.";
+    }
 }

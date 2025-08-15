@@ -107,6 +107,7 @@ debug/qrc_res.cpp: ../../res.qrc \
 		../../assets/close.png \
 		../../assets/open.png \
 		../../assets/playing.png \
+		../../assets/showSong.png \
 		../../assets/volume.png \
 		../../assets/playlist_random.png \
 		../../assets/BK2.png \
@@ -234,6 +235,25 @@ debug/moc_widget.cpp: ../../widget.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/QMediaPlayer \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaplayer.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qtmultimedia-config.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaobject.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmultimedia.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediacontent.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaresource.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qnetworkrequest.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qtnetwork-config.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QSharedDataPointer \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QString \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QUrl \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QVariant \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaenumdebug.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qmetaobject.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qaudio.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qnetworkconfiguration.h \
 		debug/moc_predefs.h \
 		../../../../QT/5.15.2/mingw81_64/bin/moc.exe
 	E:\QT\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include E:/QtCode/MusicPlayer/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IE:/QT/5.15.2/mingw81_64/mkspecs/win32-g++ -IE:/QtCode/MusicPlayer -IE:/QT/5.15.2/mingw81_64/include -IE:/QT/5.15.2/mingw81_64/include/QtMultimedia -IE:/QT/5.15.2/mingw81_64/include/QtWidgets -IE:/QT/5.15.2/mingw81_64/include/QtGui -IE:/QT/5.15.2/mingw81_64/include/QtANGLE -IE:/QT/5.15.2/mingw81_64/include/QtNetwork -IE:/QT/5.15.2/mingw81_64/include/QtCore -I. -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IE:/QT/Tools/mingw810_64/x86_64-w64-mingw32/include ..\..\widget.h -o debug\moc_widget.cpp
@@ -365,6 +385,25 @@ debug/main.o: ../../main.cpp ../../widget.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/QMediaPlayer \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaplayer.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qtmultimedia-config.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaobject.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmultimedia.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediacontent.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaresource.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qnetworkrequest.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qtnetwork-config.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QSharedDataPointer \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QString \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QUrl \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QVariant \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaenumdebug.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qmetaobject.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qaudio.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qnetworkconfiguration.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/QApplication \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
@@ -478,8 +517,26 @@ debug/widget.o: ../../widget.cpp ../../widget.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qfiledevice.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtouchdevice.h \
-		ui_widget.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/QMediaPlayer \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaplayer.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qtmultimediaglobal.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qtmultimedia-config.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaobject.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmultimedia.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediacontent.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaresource.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qnetworkrequest.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qtnetwork-config.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QSharedDataPointer \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QString \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QUrl \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QVariant \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaenumdebug.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qmetaobject.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qaudio.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qnetworkconfiguration.h \
+		ui_widget.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/QApplication \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
@@ -526,24 +583,6 @@ debug/widget.o: ../../widget.cpp ../../widget.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qfileinfo.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qdialog.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QDir \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/QMediaPlayer \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaplayer.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qtmultimediaglobal.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qtmultimedia-config.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaobject.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmultimedia.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediacontent.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaresource.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qnetworkrequest.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qtnetwork-config.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QSharedDataPointer \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QString \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QUrl \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qmediaenumdebug.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qmetaobject.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qaudio.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qnetworkconfiguration.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/QMediaContent \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/QPixmap \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/QPalette \
@@ -553,7 +592,10 @@ debug/widget.o: ../../widget.cpp ../../widget.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qpropertyanimation.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qvariantanimation.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qeasingcurve.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qabstractanimation.h
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qabstractanimation.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QTimer \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qtimer.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qbasictimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\widget.o ..\..\widget.cpp
 
 debug/qrc_res.o: debug/qrc_res.cpp 
