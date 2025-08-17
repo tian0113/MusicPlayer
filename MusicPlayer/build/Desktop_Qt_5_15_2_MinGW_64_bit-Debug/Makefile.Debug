@@ -58,7 +58,7 @@ OBJECTS       = debug/main.o \
 		debug/qrc_res.o \
 		debug/moc_widget.o
 
-DIST          =  ..\..\widget.h ..\..\main.cpp \
+DIST          = log.md ..\..\widget.h ..\..\main.cpp \
 		..\..\widget.cpp
 QMAKE_TARGET  = MusicPlayer
 DESTDIR        = debug\ #avoid trailing-slash linebreak
@@ -108,6 +108,7 @@ debug/qrc_res.cpp: ../../res.qrc \
 		../../assets/open.png \
 		../../assets/playing.png \
 		../../assets/showSong.png \
+		../../assets/Download.png \
 		../../assets/volume.png \
 		../../assets/playlist_random.png \
 		../../assets/BK2.png \
@@ -254,6 +255,15 @@ debug/moc_widget.cpp: ../../widget.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qmetaobject.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qaudio.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qnetworkconfiguration.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/QTextEdit \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qtextedit.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtextdocument.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtextcursor.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtextformat.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qpen.h \
 		debug/moc_predefs.h \
 		../../../../QT/5.15.2/mingw81_64/bin/moc.exe
 	E:\QT\5.15.2\mingw81_64\bin\moc.exe $(DEFINES) --include E:/QtCode/MusicPlayer/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/debug/moc_predefs.h -IE:/QT/5.15.2/mingw81_64/mkspecs/win32-g++ -IE:/QtCode/MusicPlayer -IE:/QT/5.15.2/mingw81_64/include -IE:/QT/5.15.2/mingw81_64/include/QtMultimedia -IE:/QT/5.15.2/mingw81_64/include/QtWidgets -IE:/QT/5.15.2/mingw81_64/include/QtGui -IE:/QT/5.15.2/mingw81_64/include/QtANGLE -IE:/QT/5.15.2/mingw81_64/include/QtNetwork -IE:/QT/5.15.2/mingw81_64/include/QtCore -I. -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IE:/QT/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IE:/QT/Tools/mingw810_64/x86_64-w64-mingw32/include ..\..\widget.h -o debug\moc_widget.cpp
@@ -404,6 +414,15 @@ debug/main.o: ../../main.cpp ../../widget.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qmetaobject.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qaudio.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qnetworkconfiguration.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/QTextEdit \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qtextedit.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtextdocument.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtextcursor.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtextformat.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qpen.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/QApplication \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qcoreapplication.h \
@@ -536,6 +555,15 @@ debug/widget.o: ../../widget.cpp ../../widget.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qmetaobject.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtMultimedia/qaudio.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtNetwork/qnetworkconfiguration.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/QTextEdit \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qtextedit.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtextdocument.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtextcursor.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtextformat.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qpen.h \
 		ui_widget.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/QApplication \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qapplication.h \
@@ -551,12 +579,10 @@ debug/widget.o: ../../widget.cpp ../../widget.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qgridlayout.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/QLabel \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qlabel.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/QListWidget \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qlistwidget.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qlistview.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qabstractitemview.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qabstractitemmodel.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qitemselectionmodel.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -595,7 +621,13 @@ debug/widget.o: ../../widget.cpp ../../widget.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qabstractanimation.h \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/QTimer \
 		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qtimer.h \
-		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qbasictimer.h
+		../../../../../../QT/5.15.2/mingw81_64/include/QtCore/qbasictimer.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/QTextBlock \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtextobject.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qtextlayout.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qglyphrun.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qrawfont.h \
+		../../../../../../QT/5.15.2/mingw81_64/include/QtGui/qfontdatabase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\widget.o ..\..\widget.cpp
 
 debug/qrc_res.o: debug/qrc_res.cpp 

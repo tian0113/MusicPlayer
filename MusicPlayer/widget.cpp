@@ -11,7 +11,7 @@
 #include<QPropertyAnimation>//动画效果
 #include<QTimer>//定时器
 #include<QTextEdit>
-
+#include<QTextBlock>
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -120,44 +120,89 @@ Widget::Widget(QWidget *parent)
         ui->speedlabel_2->setVisible(!vis2);
     });
 
+    //歌词
     //设置歌词显示图标样式表
     ui->pushButton_Lyrics->setIcon(QIcon(":/assets/showSong.png"));
 
     // 初始化歌词显示框
     ui->lyricsTextEdit->setReadOnly(true);
-    ui->lyricsTextEdit->setGeometry(20, 20, 421, 321); // 设置歌词显示区域
+    ui->lyricsTextEdit->setGeometry(20, 90, 421, 251); // 设置歌词显示区域大小
     ui->lyricsTextEdit->setVisible(false); // 默认隐藏
 
     //歌词显示框样式表设置（背景颜色，透明度，字体，滚动条，阴影效果）
-    ui->lyricsTextEdit->setStyleSheet("QTextEdit {"
-                                      "background-color: rgba(0, 0, 0, 128);"
-                                      "color: white;"
-                                      "font-family: 'Segoe UI', Arial, sans-serif;"
-                                      "font-size: 16px;"
-                                      "font-weight: bold;"
-                                      "padding: 10px;"
-                                      "border: 2px solid #333;"
-                                      "border-radius: 10px;"
-                                      "box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);"
-                                      "}");
+    ui->lyricsTextEdit->setStyleSheet(
+        "QTextEdit {"
+        "   background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(10, 20, 50, 200), stop:1 rgba(5, 10, 30, 220));"  // 蓝黑渐变背景
+        "   color: rgba(220, 220, 220, 220);"  // 浅灰色文字
+        "   font-family: 'Microsoft YaHei', 'PingFang SC', 'Segoe UI', sans-serif;"  // 中文字体优先
+        "   font-size: 18px;"  // 稍大字号
+        "   padding: 20px 30px;"  // 更大的内边距
+        "   border: 1px solid rgba(100, 150, 255, 50);"  // 浅蓝色半透明边框
+        "   border-radius: 12px;"  // 更大的圆角
+        "   selection-background-color: rgba(0, 150, 255, 150);"  // 选中文本背景色
+        "   selection-color: white;"  // 选中文本颜色
+        "}"
+        );
 
     //禁止在歌词显示界面使用滚动条
     ui->lyricsTextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->lyricsTextEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    // 初始化歌词按钮
-    ui->pushButton_Lyrics->setVisible(true); // 确保歌词按钮可见
+    // 初始化歌词按钮,确保歌词按钮可见
+    ui->pushButton_Lyrics->setVisible(true);
 
+    //歌单
     //设置歌单显示界面样式表，使QListWidget背景透明
+    //歌词显示框样式表设置（背景颜色，透明度，字体，滚动条，阴影效果）
     ui->listWidget->setStyleSheet(
-        "QListWidget { background: transparent; border: none; }"
-        "QListWidget::item { background: transparent; }");
-    ui->listWidget->viewport()->setAutoFillBackground(false);
+        "QListWidget {"
+        "   background-color: rgba(25, 30, 45, 220);"  // 深蓝灰半透明背景
+        "   border: 1px solid rgba(255, 255, 255, 30);"  // 浅色半透明边框
+        "   border-radius: 8px;"  // 圆角
+        "   padding: 5px;"
+        "   outline: 0;"  // 移除焦点边框
+        "   font-family: 'Microsoft YaHei', 'Segoe UI', sans-serif;"
+        "}"
+
+        // 列表项默认样式
+        "QListWidget::item {"
+        "   background-color: transparent;"  // 透明背景
+        "   color: rgb(50, 220, 220);"  // 浅灰色文字
+        "   height: 36px;"  // 固定行高
+        "   padding-left: 15px;"
+        "   border-bottom: 1px solid rgba(255, 255, 255, 10);"  // 项间分隔线
+        "   font-size: 14px;"
+        "}"
+
+        // 鼠标悬停样式
+        "QListWidget::item:hover {"
+        "   background-color: rgba(60, 140, 230, 80);"  // 浅蓝色悬停效果
+        "   color: white;"
+        "}"
+
+        // 选中项样式
+        "QListWidget::item:selected {"
+        "   background-color: rgba(40, 110, 200, 150);"  // 蓝色选中背景
+        "   color: white;"
+        "   border-left: 3px solid rgb(0, 150, 255);"  // 左侧高亮条
+        "}"
+        );
+
+    //设置歌单显示区域大小
+    ui->listWidget->setGeometry(490,0,221,371);
+
+    //设置歌单默认隐藏
+    ui->listWidget->setVisible(false);
 
     //禁止在歌单显示界面使用滚动条
     ui->listWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->listWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
+    //下载
+    //设置下载按钮图标样式
+    ui->pushButton_9->setIcon(QIcon(":/assets/Download.png"));
+
+    //信号和槽函数
     //播放完当前歌曲后自动切换歌曲
     connect(mediaPlayer,&QMediaPlayer::mediaStatusChanged,[=](QMediaPlayer::MediaStatus status){
         //判断当前音乐是否播放完
